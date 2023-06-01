@@ -8,12 +8,36 @@
 import UIKit
 
 class DashboardController: UIViewController {
-
+    // MARK: - OUTLETS
+    
+    
+    // MARK: - PROPERTIES
+    var dashboardInfo: [DashboardInfo] = []
+    
+    // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.configUI()
+        self.fetchDashboardData()
     }
-
-
+    
+    // MARK: - CONFIG
+    private func configUI() {
+        
+    }
+    
+    // MARK: - HELPERS
+    private func fetchDashboardData() {
+        DashboardViewModel().fetchDashboardData { [weak self] dashboardData, errorMessage in
+            guard let self else { return }
+            if errorMessage == nil {
+                guard let dashboardData else { return }
+                self.dashboardInfo = dashboardData
+            } else {
+                guard let errorMessage else { return }
+                self.showAlert(message: errorMessage)
+            }
+        }
+    }
 }
 

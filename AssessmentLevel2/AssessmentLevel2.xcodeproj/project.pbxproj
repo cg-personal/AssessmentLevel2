@@ -15,6 +15,9 @@
 		DEA17F462A28AFD20040ABFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA17F442A28AFD20040ABFF /* LaunchScreen.storyboard */; };
 		DEA17F562A28B0F50040ABFF /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F552A28B0F50040ABFF /* DashboardModel.swift */; };
 		DEA17F582A28B10B0040ABFF /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F572A28B10B0040ABFF /* DashboardViewModel.swift */; };
+		DEA17F5B2A28B1C10040ABFF /* DashboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F5A2A28B1C10040ABFF /* DashboardClient.swift */; };
+		DEA17F5E2A28B2220040ABFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F5D2A28B2220040ABFF /* Constants.swift */; };
+		DEA17F602A28BC2D0040ABFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F5F2A28BC2D0040ABFF /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		DEA17F472A28AFD20040ABFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEA17F552A28B0F50040ABFF /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		DEA17F572A28B10B0040ABFF /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		DEA17F5A2A28B1C10040ABFF /* DashboardClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardClient.swift; sourceTree = "<group>"; };
+		DEA17F5D2A28B2220040ABFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DEA17F5F2A28BC2D0040ABFF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 				DEA17F4D2A28B0170040ABFF /* General */,
 				DEA17F4E2A28B0630040ABFF /* Dashboard */,
 				DEA17F532A28B0D00040ABFF /* Resources */,
+				DEA17F5C2A28B1EE0040ABFF /* Utils */,
 				DEA17F442A28AFD20040ABFF /* LaunchScreen.storyboard */,
 				DEA17F472A28AFD20040ABFF /* Info.plist */,
 			);
@@ -81,6 +88,7 @@
 		DEA17F4E2A28B0630040ABFF /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				DEA17F592A28B1AE0040ABFF /* API */,
 				DEA17F522A28B0910040ABFF /* Model */,
 				DEA17F502A28B0770040ABFF /* View */,
 				DEA17F4F2A28B06A0040ABFF /* ViewModel */,
@@ -135,6 +143,23 @@
 			children = (
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		DEA17F592A28B1AE0040ABFF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DEA17F5A2A28B1C10040ABFF /* DashboardClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DEA17F5C2A28B1EE0040ABFF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DEA17F5D2A28B2220040ABFF /* Constants.swift */,
+				DEA17F5F2A28BC2D0040ABFF /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +236,9 @@
 				DEA17F562A28B0F50040ABFF /* DashboardModel.swift in Sources */,
 				DEA17F582A28B10B0040ABFF /* DashboardViewModel.swift in Sources */,
 				DEA17F3E2A28AFD00040ABFF /* DashboardController.swift in Sources */,
+				DEA17F602A28BC2D0040ABFF /* Extensions.swift in Sources */,
+				DEA17F5B2A28B1C10040ABFF /* DashboardClient.swift in Sources */,
+				DEA17F5E2A28B2220040ABFF /* Constants.swift in Sources */,
 				DEA17F3A2A28AFD00040ABFF /* AppDelegate.swift in Sources */,
 				DEA17F3C2A28AFD00040ABFF /* SceneDelegate.swift in Sources */,
 			);
