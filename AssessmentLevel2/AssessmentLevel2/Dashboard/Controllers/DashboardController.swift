@@ -20,6 +20,7 @@ class DashboardController: UIViewController {
     var imageLimit = 20
     private lazy var dialogueView = Bundle.main.loadNibNamed("DialogueView", owner: self, options: nil)?.first as! DialogueView
     var selectedIndex: Int!
+    let refreshControl = UIRefreshControl()
     
     // MARK: - LIFE CYCLE
     override func viewDidLoad() {
@@ -33,6 +34,8 @@ class DashboardController: UIViewController {
         self.dashboardTableView.delegate = self
         self.dashboardTableView.dataSource = self
         self.dashboardTableView.register(UINib(nibName: "DashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardTableViewCell")
+        self.refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        self.dashboardTableView.addSubview(refreshControl)
     }
     
     private func updatePaginationButton() {
@@ -85,6 +88,12 @@ class DashboardController: UIViewController {
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - SELECTORS
+    @objc func refreshTableView() {
+        self.fetchDashboardData()
+        refreshControl.endRefreshing()
     }
     
     // MARK: - ACTIONS
