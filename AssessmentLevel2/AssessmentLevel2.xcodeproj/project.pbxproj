@@ -21,6 +21,8 @@
 		DEA17F632A28D6DB0040ABFF /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F612A28D6DA0040ABFF /* DashboardTableViewCell.swift */; };
 		DEA17F642A28D6DB0040ABFF /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA17F622A28D6DB0040ABFF /* DashboardTableViewCell.xib */; };
 		DEA17F662A28D9C00040ABFF /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F652A28D9C00040ABFF /* CustomImageView.swift */; };
+		DEE002072A28F6B2009120F3 /* DialogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE002062A28F6B2009120F3 /* DialogueView.xib */; };
+		DEE002092A28F6CB009120F3 /* DialogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE002082A28F6CB009120F3 /* DialogueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		DEA17F612A28D6DA0040ABFF /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		DEA17F622A28D6DB0040ABFF /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
 		DEA17F652A28D9C00040ABFF /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		DEE002062A28F6B2009120F3 /* DialogueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogueView.xib; sourceTree = "<group>"; };
+		DEE002082A28F6CB009120F3 /* DialogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 			children = (
 				DEA17F612A28D6DA0040ABFF /* DashboardTableViewCell.swift */,
 				DEA17F622A28D6DB0040ABFF /* DashboardTableViewCell.xib */,
+				DEE002062A28F6B2009120F3 /* DialogueView.xib */,
+				DEE002082A28F6CB009120F3 /* DialogueView.swift */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE002072A28F6B2009120F3 /* DialogueView.xib in Resources */,
 				DEA17F462A28AFD20040ABFF /* LaunchScreen.storyboard in Resources */,
 				DEA17F432A28AFD20040ABFF /* Assets.xcassets in Resources */,
 				DEA17F642A28D6DB0040ABFF /* DashboardTableViewCell.xib in Resources */,
@@ -247,6 +254,7 @@
 				DEA17F582A28B10B0040ABFF /* DashboardViewModel.swift in Sources */,
 				DEA17F3E2A28AFD00040ABFF /* DashboardController.swift in Sources */,
 				DEA17F602A28BC2D0040ABFF /* Extensions.swift in Sources */,
+				DEE002092A28F6CB009120F3 /* DialogueView.swift in Sources */,
 				DEA17F5B2A28B1C10040ABFF /* DashboardClient.swift in Sources */,
 				DEA17F5E2A28B2220040ABFF /* Constants.swift in Sources */,
 				DEA17F632A28D6DB0040ABFF /* DashboardTableViewCell.swift in Sources */,

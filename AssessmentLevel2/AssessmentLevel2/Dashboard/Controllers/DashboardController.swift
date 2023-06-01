@@ -18,6 +18,7 @@ class DashboardController: UIViewController {
     var dashboardInfo: [DashboardInfo] = []
     var currentPage = 1
     var imageLimit = 20
+    private lazy var dialogueView = Bundle.main.loadNibNamed("DialogueView", owner: self, options: nil)?.first as! DialogueView
     
     // MARK: - LIFE CYCLE
     override func viewDidLoad() {
@@ -37,6 +38,12 @@ class DashboardController: UIViewController {
         self.pageNumberButton.setTitle("\(self.currentPage)", for: .normal)
         self.leftButton.isEnabled = self.currentPage == 1 ? false : true
         self.rightButton.isEnabled = self.currentPage == 50 ? false : true
+    }
+    
+    func configureDialogueView(){
+        self.dialogueView.frame = CGRect(x: 0, y: 0, width: 283, height: 160)
+        self.dialogueView.center = self.view.center
+        self.dialogueView.delegate = self
     }
     
     // MARK: - HELPERS
@@ -85,7 +92,21 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.configureDialogueView()
+        self.dialogueView.setupView(data: self.dashboardInfo[indexPath.row])
+        self.view.addSubview(self.dialogueView)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+
+// MARK: - DIALOGUE VIEW DELEGATE
+extension DashboardController: DialogueDelegate {
+    
+    func okayTapped() {
+        self.dialogueView.removeFromSuperview()
     }
 }

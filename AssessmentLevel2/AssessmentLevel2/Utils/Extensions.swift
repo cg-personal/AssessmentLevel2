@@ -23,10 +23,16 @@ extension UIViewController {
 
 // MARK: - UIView
 extension UIView {
+    
     func addCornerRadius(radius : CGFloat){
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
         self.clipsToBounds = true
+    }
+    
+    func addSimpleBorder(width: CGFloat,color : UIColor){
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
     }
 }
 
