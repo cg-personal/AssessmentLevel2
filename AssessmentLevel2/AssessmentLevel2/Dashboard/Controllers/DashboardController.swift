@@ -16,6 +16,8 @@ class DashboardController: UIViewController {
     
     // MARK: - PROPERTIES
     var dashboardInfo: [DashboardInfo] = []
+    var currentPage = 1
+    var imageLimit = 20
     
     // MARK: - LIFE CYCLE
     override func viewDidLoad() {
@@ -29,6 +31,12 @@ class DashboardController: UIViewController {
         self.dashboardTableView.delegate = self
         self.dashboardTableView.dataSource = self
         self.dashboardTableView.register(UINib(nibName: "DashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardTableViewCell")
+        self.updatePaginationButton()
+    }
+    
+    private func updatePaginationButton() {
+        self.pageNumberButton.setTitle("\(self.currentPage)", for: .normal)
+        self.leftButton.isEnabled = self.currentPage == 1 ? false : true
     }
     
     // MARK: - HELPERS
@@ -50,11 +58,16 @@ class DashboardController: UIViewController {
     
     // MARK: - ACTIONS
     @IBAction func leftButtonTapped(_ sender: UIButton) {
-        
+        self.currentPage -= 1
+        if self.currentPage < 1 {
+            self.currentPage = 1
+        }
+        self.updatePaginationButton()
     }
     
     @IBAction func rightButtonTapped(_ sender: UIButton) {
-        
+        self.currentPage += 1
+        self.updatePaginationButton()
     }
 }
 
