@@ -19,6 +19,7 @@ class DashboardController: UIViewController {
     var currentPage = 1
     var imageLimit = 20
     private lazy var dialogueView = Bundle.main.loadNibNamed("DialogueView", owner: self, options: nil)?.first as! DialogueView
+    var selectedIndex: Int!
     
     // MARK: - LIFE CYCLE
     override func viewDidLoad() {
@@ -64,6 +65,28 @@ class DashboardController: UIViewController {
         }
     }
     
+    func showAlert(selectedRow: Int, author: String) {
+        let alertController = UIAlertController(title: "Remove", message: "Do you want to deselect this author \(author)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            var selectedData = self?.dashboardInfo[selectedRow]
+            selectedData?.isSelected = false
+            self?.dashboardInfo = (self?.dashboardInfo.map {
+                var mutable = $0
+                if mutable.id == selectedData!.id {
+                    mutable = selectedData!
+                }
+                return mutable
+            })!
+            let cell = self?.dashboardTableView.cellForRow(at: IndexPath(row: selectedRow, section: 0)) as! DashboardTableViewCell
+            cell.checkButton.isSelected = false
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { _ in
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: - ACTIONS
     @IBAction func leftButtonTapped(_ sender: UIButton) {
         self.currentPage -= 1
@@ -93,9 +116,15 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.configureDialogueView()
-        self.dialogueView.setupView(data: self.dashboardInfo[indexPath.row])
-        self.view.addSubview(self.dialogueView)
+        self.selectedIndex = indexPath.row
+        var selectedRow = self.dashboardInfo[indexPath.row]
+        if selectedRow.isSelected {
+            self.showAlert(selectedRow: indexPath.row, author: selectedRow.author)
+        } else {
+            self.configureDialogueView()
+            self.dialogueView.setupView(data: self.dashboardInfo[indexPath.row])
+            self.view.addSubview(self.dialogueView)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -108,5 +137,17 @@ extension DashboardController: DialogueDelegate {
     
     func okayTapped() {
         self.dialogueView.removeFromSuperview()
+        var selectedRow = dashboardInfo[self.selectedIndex]
+        selectedRow.isSelected = true
+        dashboardInfo = dashboardInfo.map {
+            var mutable = $0
+            if mutable.id == selectedRow.id {
+                mutable = selectedRow
+            }
+            return mutable
+        }
+        if let cell = self.dashboardTableView.cellForRow(at: IndexPath(row: self.selectedIndex, section: 0)) as? DashboardTableViewCell {
+            cell.checkButton.isSelected = true
+        }
     }
 }

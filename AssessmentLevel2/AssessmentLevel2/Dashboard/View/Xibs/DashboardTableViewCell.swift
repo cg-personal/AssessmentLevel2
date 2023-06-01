@@ -35,5 +35,6 @@ class DashboardTableViewCell: UITableViewCell {
         self.authorLabel.text = data.author
         self.descriptionLabel.text = data.url
         self.imageSizeLabel.text = "Width: \(data.width) Height: \(data.height)"
+        self.checkButton.isSelected = data.isSelected
     }
 }

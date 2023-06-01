@@ -15,6 +15,7 @@ struct DashboardInfo: Codable {
     var height: Int
     var url: String
     var downloadUrl: String
+    var isSelected: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id, author, width, height, url
