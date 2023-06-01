@@ -10,8 +10,9 @@ import Foundation
 final class DashboardClient {
     
     //MARK: - DASHBOARD API
-    class func getDashboardData(completion: @escaping (_ data: [DashboardInfo]?, _ errorMessage: String? ) -> Void) {
-        var request = URLRequest(url: URL(string: BASEURL)!,timeoutInterval: Double.infinity)
+    class func getDashboardData(pageNumber: Int, imageLimit: Int, completion: @escaping (_ data: [DashboardInfo]?, _ errorMessage: String? ) -> Void) {
+        let url = "https://picsum.photos/v2/list?page=\(pageNumber)&limit=\(imageLimit)"
+        var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {

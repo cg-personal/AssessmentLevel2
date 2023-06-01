@@ -31,23 +31,24 @@ class DashboardController: UIViewController {
         self.dashboardTableView.delegate = self
         self.dashboardTableView.dataSource = self
         self.dashboardTableView.register(UINib(nibName: "DashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardTableViewCell")
-        self.updatePaginationButton()
     }
     
     private func updatePaginationButton() {
         self.pageNumberButton.setTitle("\(self.currentPage)", for: .normal)
         self.leftButton.isEnabled = self.currentPage == 1 ? false : true
+        self.rightButton.isEnabled = self.currentPage == 50 ? false : true
     }
     
     // MARK: - HELPERS
     private func fetchDashboardData() {
-        DashboardViewModel().fetchDashboardData { [weak self] dashboardData, errorMessage in
+        DashboardViewModel().fetchDashboardData(pageNumber: self.currentPage, imageLimit: self.imageLimit) { [weak self] dashboardData, errorMessage in
             guard let self else { return }
             if errorMessage == nil {
                 guard let dashboardData else { return }
                 self.dashboardInfo = dashboardData
                 DispatchQueue.main.async {
                     self.dashboardTableView.reloadData()
+                    self.updatePaginationButton()
                 }
             } else {
                 guard let errorMessage else { return }
@@ -62,12 +63,12 @@ class DashboardController: UIViewController {
         if self.currentPage < 1 {
             self.currentPage = 1
         }
-        self.updatePaginationButton()
+        self.fetchDashboardData()
     }
     
     @IBAction func rightButtonTapped(_ sender: UIButton) {
         self.currentPage += 1
-        self.updatePaginationButton()
+        self.fetchDashboardData()
     }
 }
 
