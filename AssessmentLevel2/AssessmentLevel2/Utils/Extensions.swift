@@ -20,3 +20,29 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
+
+// MARK: - UIView
+extension UIView {
+    func addCornerRadius(radius : CGFloat){
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+    }
+}
+
+// MARK: - UIImageView
+extension UIImage {
+    func resizeImage(toMaxDimension maxDimension: CGFloat) -> UIImage {
+        let scale = maxDimension / max(size.width, size.height)
+        let newWidth = size.width * scale
+        let newHeight = size.height * scale
+        let newSize = CGSize(width: newWidth, height: newHeight)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        draw(in: CGRect(origin: .zero, size: newSize))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
+    }
+}

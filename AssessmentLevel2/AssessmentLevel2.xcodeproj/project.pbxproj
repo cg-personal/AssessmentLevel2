@@ -18,6 +18,9 @@
 		DEA17F5B2A28B1C10040ABFF /* DashboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F5A2A28B1C10040ABFF /* DashboardClient.swift */; };
 		DEA17F5E2A28B2220040ABFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F5D2A28B2220040ABFF /* Constants.swift */; };
 		DEA17F602A28BC2D0040ABFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F5F2A28BC2D0040ABFF /* Extensions.swift */; };
+		DEA17F632A28D6DB0040ABFF /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F612A28D6DA0040ABFF /* DashboardTableViewCell.swift */; };
+		DEA17F642A28D6DB0040ABFF /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA17F622A28D6DB0040ABFF /* DashboardTableViewCell.xib */; };
+		DEA17F662A28D9C00040ABFF /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA17F652A28D9C00040ABFF /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		DEA17F5A2A28B1C10040ABFF /* DashboardClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardClient.swift; sourceTree = "<group>"; };
 		DEA17F5D2A28B2220040ABFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DEA17F5F2A28BC2D0040ABFF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DEA17F612A28D6DA0040ABFF /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
+		DEA17F622A28D6DB0040ABFF /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
+		DEA17F652A28D9C00040ABFF /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,8 @@
 		DEA17F542A28B0E20040ABFF /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				DEA17F612A28D6DA0040ABFF /* DashboardTableViewCell.swift */,
+				DEA17F622A28D6DB0040ABFF /* DashboardTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 			children = (
 				DEA17F5D2A28B2220040ABFF /* Constants.swift */,
 				DEA17F5F2A28BC2D0040ABFF /* Extensions.swift */,
+				DEA17F652A28D9C00040ABFF /* CustomImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 			files = (
 				DEA17F462A28AFD20040ABFF /* LaunchScreen.storyboard in Resources */,
 				DEA17F432A28AFD20040ABFF /* Assets.xcassets in Resources */,
+				DEA17F642A28D6DB0040ABFF /* DashboardTableViewCell.xib in Resources */,
 				DEA17F412A28AFD00040ABFF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,8 +249,10 @@
 				DEA17F602A28BC2D0040ABFF /* Extensions.swift in Sources */,
 				DEA17F5B2A28B1C10040ABFF /* DashboardClient.swift in Sources */,
 				DEA17F5E2A28B2220040ABFF /* Constants.swift in Sources */,
+				DEA17F632A28D6DB0040ABFF /* DashboardTableViewCell.swift in Sources */,
 				DEA17F3A2A28AFD00040ABFF /* AppDelegate.swift in Sources */,
 				DEA17F3C2A28AFD00040ABFF /* SceneDelegate.swift in Sources */,
+				DEA17F662A28D9C00040ABFF /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
