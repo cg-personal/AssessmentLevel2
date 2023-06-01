@@ -10,7 +10,9 @@ import UIKit
 class DashboardController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var dashboardTableView: UITableView!
-    
+    @IBOutlet weak var pageNumberButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     
     // MARK: - PROPERTIES
     var dashboardInfo: [DashboardInfo] = []
@@ -44,6 +46,15 @@ class DashboardController: UIViewController {
                 self.showAlert(message: errorMessage)
             }
         }
+    }
+    
+    // MARK: - ACTIONS
+    @IBAction func leftButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func rightButtonTapped(_ sender: UIButton) {
+        
     }
 }
 
