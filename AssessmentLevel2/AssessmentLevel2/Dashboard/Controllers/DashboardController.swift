@@ -69,7 +69,7 @@ class DashboardController: UIViewController {
     }
     
     func showAlert(selectedRow: Int, author: String) {
-        let alertController = UIAlertController(title: "Remove", message: "Do you want to deselect this author \(author)", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Remove", message: "Do you want to deselect this author \(author)?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             var selectedData = self?.dashboardInfo[selectedRow]
             selectedData?.isSelected = false
@@ -126,7 +126,7 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
-        var selectedRow = self.dashboardInfo[indexPath.row]
+        let selectedRow = self.dashboardInfo[indexPath.row]
         if selectedRow.isSelected {
             self.showAlert(selectedRow: indexPath.row, author: selectedRow.author)
         } else {
